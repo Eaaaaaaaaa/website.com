@@ -1,8 +1,20 @@
 {
+  "name": "gymfactory",
+  "version": "1.0.0",
+  "description": "Landing page",
+  "keywords": [
+    "app",
+    "gym",
+    "application",
+    "javascript"
+  ],
+  "author": "Renato Mercado",
+  "main": "index.js",
   "devDependencies": {
     "tailwindcss": "^3.1.8"
   },
   "dependencies": {
+    "faunadb": "^4.7.1",
     "flowbite": "^1.5.3"
   }
 }

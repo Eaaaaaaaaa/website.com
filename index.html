@@ -80,7 +80,7 @@
       <!--Right Col-->
       <div class="w-full md:w-3/5 md:py-20 py-5 flex sticky justify-center">
         <div class="w-4/5 md:w-2/5 z-50 rounded-3xl overflow-hidden shadow-lg">
-          <img class="w-full" src="images/bg_blur-overlay.jpg" />
+          <img class="w-full" src="images/bg_blur-overlay.jpeg" />
         </div>
       </div>
     </div>
@@ -122,7 +122,7 @@
       <!-- LIST OF FEATURES -->
       <div class="flex flex-wrap flex-col-reverse sm:flex-row">
         <div class="w-full sm:w-1/2 p-6 mt-6">
-          <img class="w-full" src="images/rutines_and_user_graphs.png" />
+          <img class="w-full" src="images/rutines_and_user_graphs.jpeg" />
         </div>
         <div class="w-full sm:w-1/2 p-6 mt-6 md:flex md:items-center">
           <div class="align-middle">
@@ -163,13 +163,13 @@
           </div>
         </div>
         <div class="w-full sm:w-1/2 p-6">
-          <img class="w-full" src="images/notification_user.png" />
+          <img class="w-full" src="images/notification_user.jpeg" />
         </div>
       </div>
       <br>
       <div class="flex flex-wrap flex-col-reverse sm:flex-row">
         <div class="w-full sm:w-1/2 p-6 mt-6">
-          <img class="w-full" src="images/add_content.png" />
+          <img class="w-full" src="images/add_content.jpeg" />
         </div>
         <div class="w-full sm:w-1/2 p-6 mt-6  md:flex md:items-center">
           <div class="align-middle">
@@ -210,7 +210,7 @@
           </div>
         </div>
         <div class="w-full sm:w-1/2 p-6">
-          <img class="w-full" src="images/web_platform.png" />
+          <img class="w-full" src="images/web_platform.jpeg" />
         </div>
       </div>
       <br>
@@ -338,7 +338,8 @@
                         construir la mejor app del universo. Pero puedes dejar tu correo aqui abajo para notificarte
                         cuando estemos listos para operar. Si tienes alguna recomendacion o sugerencia tmb la puedes
                         incluir.</p>
-                      <form class="space-y-6" action="#">
+                      <form class="space-y-6" action="#" id="form-plan" action="javascript:;"
+                        onsubmit="registerMail(this)">
                         <div>
                           <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tu
                             correo ✉</label>
@@ -350,12 +351,11 @@
                           <label for="text"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alguna recomendacion
                             o sugerencia</label>
-                          <input type="text" name="password" id="password"
-                            placeholder="la propuesta es genial. Me gustaria que incluyan ..."
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                        </div>lo
-                        <button type="submit"
+                          <input type="text" name="text" id="text"
+                            placeholder="La propuesta es genial. Me gustaria que incluyan ..."
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        </div>
+                        <button type="submit" id="submit_form"
                           class="w-full text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrarme</button>
                       </form>
                     </div>
@@ -363,8 +363,15 @@
                 </div>
           </div>
           <!--SCRIPTS -->
+          <script src="https://cdn.jsdelivr.net/npm/faunadb@latest/dist/faunadb-min.js"></script>
           <script src="node_modules/flowbite/dist/flowbite.js"></script>
+          <script src="main.js" type="module"></script>
           <script>
+            let input = document.getElementById("submit_form");
+            input.addEventListener("submit", (event) => {
+              event.preventDefault();
+            })
+
             var scrollpos = window.scrollY;
             var header = document.getElementById("header");
             var navcontent = document.getElementById("nav-content");

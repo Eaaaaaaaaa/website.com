@@ -1,1 +1,7 @@
-node_modules
+#.gitignore file
+
+# dependencies
+/node_modules 
+
+# env
+config.js
