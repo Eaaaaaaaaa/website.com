@@ -23,16 +23,23 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/src/index.html'));
 });
 
+app.get('/success', function (req, res) {
+  res.sendFile(__dirname + '/success.html');
+});
+
 app.post('/mail_registration', async (req, res) => {
   await client
     .query(
       q.Create(q.Collection('mail-list'), {
-        data: { mail: req.body.email, suggestion: req.body.text },
+        data: {
+          mail: req.body.email,
+          suggestion: req.body.text,
+        },
       })
     )
     .catch((err) => console.log(err));
 
-  res.redirect('/');
+  res.redirect('/success');
 });
 
 app.listen(port, () => {
