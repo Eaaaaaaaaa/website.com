@@ -214,14 +214,30 @@
         </div>
       </div>
       <br>
-      <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-        Tienes alguna idea sobre algo que quisieras en nuestra app?
-      </h2>
-      <h4 class="w-full my-2 text-2xl font-bold leading-tight text-center text-gray-500">
-        Comunicate en la seccion de contacto sobre cualquier sugerencia que tengas.
-      </h4>
+      <div class="flex flex-wrap flex-col-reverse sm:flex-row">
+        <div class="w-full sm:w-1/2 p-6 mt-6">
+          <img class="w-full" src="./assets/images/add_content.jpeg" />
+        </div>
+        <div class="w-full sm:w-1/2 p-6 mt-6  md:flex md:items-center">
+          <div class="align-middle">
+            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+              Un solo pago mensual
+            </h3>
+            <p class="text-gray-600 mb-8 text-justify">
+              Da acceso a tus usuarios a una aplicacion movil con sus rutinas y monitoriza su progreso a traves de una
+              web por un solo pago mensual. 💪
+            </p>
+          </div>
+        </div>
+        <br>
+        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+          Tienes alguna idea sobre algo que quisieras en nuestra app?
+        </h2>
+        <h4 class="w-full my-2 text-2xl font-bold leading-tight text-center text-gray-500">
+          Comunicate en la seccion de contacto sobre cualquier sugerencia que tengas.
+        </h4>
 
-    </div>
+      </div>
   </section>
   <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -338,7 +354,7 @@
                         construir la mejor app del universo. Pero puedes dejar tu correo aqui abajo para notificarte
                         cuando estemos listos para operar. Si tienes alguna recomendacion o sugerencia tmb la puedes
                         incluir.</p>
-                      <form action="/mail_registration" method="post" class="space-y-6" action="#" id="form-plan"
+                      <form method="post" class="space-y-6" action="/success.html" id="form-plan"
                         onsubmit="onFormSubmit();"">
                         <label for=" email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tu
                         correo ✉</label>
@@ -361,8 +377,26 @@
           <!--SCRIPTS -->
           <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
           <script>
+            const api_url = "https://eibb7ftrb8.execute-api.us-west-1.amazonaws.com/Prod/mail_registration";
             function onFormSubmit() {
               //event.preventDefault();
+              getapi()
+            }
+
+            async function getapi() {
+              let options = {
+                method: "POST",
+                mode: 'no-cors',
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  "email": "client_mai2l@a.com",
+                  "text": "aaaa"
+                })
+              }
+              await fetch(api_url, options)
+                .then((response) => window.navigate("success.html"))
             }
           </script>
           <script>
