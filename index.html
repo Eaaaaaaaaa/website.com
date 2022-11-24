@@ -16,6 +16,14 @@
     .solid-bg {
       background: #000000 100%;
     }
+
+    .toggle-content {
+      display: none;
+    }
+
+    .toggle-content.is-visible {
+      display: block;
+    }
   </style>
 </head>
 
@@ -347,28 +355,72 @@
                       <span class="sr-only">Close modal</span>
                     </button>
                     <div class="py-6 px-6 lg:px-8">
-                      <h2 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Oops, nos atrapastes
-                        trabajando
-                      </h2>
-                      <p class="mb-4 font-medium text-gray-900 dark:text-white text-justify">Aun no terminamos de
-                        construir la mejor app del universo. Pero puedes dejar tu correo aqui abajo para notificarte
-                        cuando estemos listos para operar. Si tienes alguna recomendacion o sugerencia tmb la puedes
-                        incluir.</p>
-                      <form method="post" class="space-y-6" action="success.html" id="form-plan"
-                        onsubmit="onFormSubmit();"">
-                        <label for=" email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tu
-                        correo ✉</label>
-                        <input type="email" name="email" id="email"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                          placeholder="nombre@mail.com" required>
-                        <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alguna
-                          recomendacion
-                          o sugerencia</label>
-                        <input type="text" name="text" id="text"
-                          placeholder="La propuesta es genial. Me gustaria que incluyan ..."
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                        <button type="submit" id="submit_form"
-                          class="w-full text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrarme</button>
+                      <div id="questionary" class="space-y-6">
+                        <form method="post" id="form-plan" onsubmit="onFormSubmit();"">
+                          <h2 class=" mb-4 text-2xl font-medium text-gray-900 dark:text-white">Oops, nos atrapastes
+                          trabajando
+                          </h2>
+                          <p class="mb-4 font-medium text-gray-900 dark:text-white text-justify">Aun no terminamos de
+                            construir la mejor app del universo. Pero puedes dejar tu correo aqui abajo para notificarte
+                            cuando estemos listos para operar. Si tienes alguna recomendacion o sugerencia tmb la puedes
+                            incluir.</p>
+
+                          <label for="email"
+                            class="my-2 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tu
+                            correo ✉</label>
+                          <input type="email" name="email" id="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                            placeholder="nombre@mail.com" required>
+                          <label for="text"
+                            class="my-6 block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Alguna
+                            recomendacion
+                            o sugerencia</label>
+                          <input type="text" name="text" id="text"
+                            placeholder="La propuesta es genial. Me gustaria que incluyan ..."
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                          </br>
+                          <button type="submit" id="submit_form"
+                            class="w-full text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrarme</button>
+                        </form>>
+                      </div>
+
+                      <div role="status" id="loading_anim" class="text-center py-6 px-6 lg:px-8 hidden">
+                        <h2 class="mb-4 text-2xl font-medium text-gray-900 dark:text-white">Registrando tus datos ⚒</h2>
+                        <p class="mb-4 font-medium text-gray-900 dark:text-white text-justify">Un paso mas cerca de
+                          digitalizar tu gimnasio.</p>
+                        <div role="status">
+                          <svg class="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                            viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                              fill="currentColor" />
+                            <path
+                              d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                              fill="currentFill" />
+                          </svg>
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                      </div>
+
+
+                      <div class="hidden leading-normal tracking-normal text-white solid-bg"
+                        style="font-family: 'Source Sans Pro', sans-serif;" id="success_messsage">
+                        <div class="max-w-max mx-auto">
+                          <main class="flex-col p-8">
+                            <p class="text-4xl font-extrabold text-indigo-600 sm:text-5xl">Gracias estaremos en
+                              contacto 💪</p>
+                            <div class="ml-12 mt-8">
+                              <div class="sm:border-l sm:border-gray-200 sm:pl-6">
+                                <h1 class="text-4xl font-extrabold text-gray-400 tracking-tight sm:text-5xl">Te
+                                  enviaremos correos
+                                  con actualizaciones de nuestra plataforma 🚀</h1>
+                              </div>
+                            </div>
+                          </main>
+                        </div>
+                        <div class="w-1/4 w-1/2 w-1/3 w-3/4 w-4/5"></div>
+                      </div>
+
                       </form>
                     </div>
                   </div>
@@ -379,11 +431,20 @@
           <script>
             const api_url = "https://eibb7ftrb8.execute-api.us-west-1.amazonaws.com/Prod/mail_registration";
             function onFormSubmit() {
-              //event.preventDefault();
-              getapi()
+              event.preventDefault();
+
+              let reqBody = {};
+              const form = document.getElementById("form-plan");
+              Object.keys(form.elements).forEach(key => {
+                let element = form.elements[key];
+                if (element.type !== "submit") {
+                  reqBody[element.name] = element.value;
+                }
+              });
+              getapi(reqBody)
             }
 
-            async function getapi() {
+            async function getapi(reqBody) {
               let options = {
                 method: "POST",
                 mode: 'no-cors',
@@ -391,12 +452,23 @@
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                  "email": "client_mai2l@a.com",
-                  "text": "aaaa"
+                  "email": reqBody["email"],
+                  "text": reqBody["text"]
                 })
               }
+              var loading_anim = document.getElementById("loading_anim");
+              var questionary = document.getElementById("questionary");
+              var success_messsage = document.getElementById("success_messsage");
+
+              loading_anim.classList.remove('hidden');
+              questionary.classList.add('hidden')
+
               await fetch(api_url, options)
-                .then((response) => window.navigate("success.html"))
+                .then((response) => {
+                  loading_anim.classList.add('questionary')
+                  loading_anim.classList.add('hidden')
+                  success_messsage.classList.remove('hidden')
+                })
             }
           </script>
           <script>
