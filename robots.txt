@@ -1,0 +1,4 @@
+Sitemap: https://gymfactory.app/sitemap.xml
+
+User-agent: *
+Disallow:
