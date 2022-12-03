@@ -104,7 +104,7 @@
         </p>
         <a href="#featuresSection">
           <button
-            class="modal-plans-trigger mx-auto lg:mx-0 bg-green-500 text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+            class="features-trigger mx-auto lg:mx-0 bg-green-500 text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Funciones
           </button>
         </a>
@@ -602,6 +602,8 @@
           <script>
             // CLICK GTM
             let onclick_elements = document.querySelectorAll(".modal-plans-trigger")
+            let features_trigger_elements = document.querySelectorAll(".features-trigger")
+
             for (let i = 0; i < onclick_elements.length; i++) {
               let element = onclick_elements[i]
               element.onclick = function (event) {
@@ -612,7 +614,20 @@
                   'VALUE': 'MAIN',
                   'EXTRA': 'called from landing by user'
                 }
-                updatePreviewer(dL_push)
+                window.dataLayer.push(dL_push)
+              }
+            }
+
+            for (let i = 0; i < features_trigger_elements.length; i++) {
+              let element = features_trigger_elements[i]
+              element.onclick = function (event) {
+                let dL_push = {
+                  'event': 'FEATURES_VIEW_CALLED',
+                  'ACTION': 'CLICK_LEFT',
+                  'LABEL': event.target.innerHTML,
+                  'VALUE': 'MAIN',
+                  'EXTRA': 'called from start of page'
+                }
                 window.dataLayer.push(dL_push)
               }
             }
