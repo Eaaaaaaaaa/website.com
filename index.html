@@ -104,7 +104,7 @@
         </p>
         <a href="#featuresSection">
           <button
-            class="mx-auto lg:mx-0 bg-green-500 text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+            class="modal-plans-trigger mx-auto lg:mx-0 bg-green-500 text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Funciones
           </button>
         </a>
@@ -312,7 +312,7 @@
         <div class="flex-none mt-auto bg-gray-200 rounded-3xl rounded-t-none overflow-hidden shadow p-6">
           <div class="flex items-center justify-center">
             <button
-              class="mx-auto lg:mx-0 hover:underline gradient text-white bg-green-500 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out type="
+              class="modal-plans-trigger mx-auto lg:mx-0 hover:underline gradient text-white bg-green-500 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out type="
               button" data-modal-toggle="plans-modal" data-modal-placement="center"">Revisar planes
               </button>
             </div>
@@ -355,7 +355,7 @@
 
               <!-- FAB -->
               <button title="Contact and see plans"
-                class="fixed z-90 bottom-10 right-8 bg-green-500 w-30 h-10 px-5 rounded-2xl drop-shadow-lg flex justify-center items-center text-white text hover:bg-green-600 type="
+                class="modal-plans-trigger fixed z-90 bottom-10 right-8 bg-green-500 w-30 h-10 px-5 rounded-2xl drop-shadow-lg flex justify-center items-center text-white text hover:bg-green-600 type="
                 button" data-modal-toggle="plans-modal" data-modal-placement="center"">📧 Contactanos</button>
 
       <!-- MODALS -->
@@ -598,6 +598,25 @@
               }
               return false;
             }
+          </script>
+          <script>
+            // CLICK GTM
+            let onclick_elements = document.querySelectorAll(".modal-plans-trigger")
+            for (let i = 0; i < onclick_elements.length; i++) {
+              let element = onclick_elements[i]
+              element.onclick = function (event) {
+                let dL_push = {
+                  'event': 'PLANS_VIEW_CALLED',
+                  'ACTION': 'CLICK_LEFT',
+                  'LABEL': event.target.innerHTML,
+                  'VALUE': 'MAIN',
+                  'EXTRA': 'called from landing by user'
+                }
+                updatePreviewer(dL_push)
+                window.dataLayer.push(dL_push)
+              }
+            }
+
           </script>
 </body>
 
